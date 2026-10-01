@@ -1,19 +1,23 @@
-import { TopBar } from "@/components/dashboard/TopBar";
+import { cookies } from "next/headers";
 
-export default function DashboardLayout({
+import { AppSidebar } from "@/components/dashboard/AppSidebar";
+import { TopBar } from "@/components/dashboard/TopBar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+
+export default async function DashboardLayout({
   children,
 }: LayoutProps<"/dashboard">) {
-  return (
-    <div className="flex h-screen w-full overflow-hidden">
-      {/* Sidebar placeholder: built in dashboard phase 2 */}
-      <aside className="hidden w-64 shrink-0 border-r border-sidebar-border bg-sidebar p-4 md:block">
-        <h2 className="text-lg font-semibold">Sidebar</h2>
-      </aside>
+  // The sidebar saves its expanded/collapsed state in this cookie
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar_state")?.value !== "false";
 
-      <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+  return (
+    <SidebarProvider defaultOpen={defaultOpen}>
+      <AppSidebar />
+      <SidebarInset className="h-svh overflow-y-auto">
         <TopBar />
         {children}
-      </div>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

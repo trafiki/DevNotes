@@ -33,6 +33,7 @@ export type MockCollection = {
   itemCount: number;
   typeIds: string[]; // item types shown as icons on the card
   colorTypeId: string; // most common item type, sets the card color
+  updatedAt: string;
 };
 
 export type MockItem = {
@@ -154,6 +155,7 @@ export const collections: MockCollection[] = [
     itemCount: 14,
     typeIds: ["snippet", "note", "link"],
     colorTypeId: "snippet",
+    updatedAt: "2026-09-30T09:48:00Z",
   },
   {
     id: "prompts",
@@ -163,6 +165,7 @@ export const collections: MockCollection[] = [
     itemCount: 22,
     typeIds: ["prompt", "note"],
     colorTypeId: "prompt",
+    updatedAt: "2026-09-28T10:00:00Z",
   },
   {
     id: "devops",
@@ -172,6 +175,7 @@ export const collections: MockCollection[] = [
     itemCount: 17,
     typeIds: ["command", "snippet"],
     colorTypeId: "command",
+    updatedAt: "2026-09-30T07:00:00Z",
   },
   {
     id: "context",
@@ -181,6 +185,7 @@ export const collections: MockCollection[] = [
     itemCount: 8,
     typeIds: ["file", "prompt"],
     colorTypeId: "file",
+    updatedAt: "2026-09-25T10:00:00Z",
   },
   {
     id: "interview",
@@ -190,6 +195,7 @@ export const collections: MockCollection[] = [
     itemCount: 9,
     typeIds: ["note", "snippet"],
     colorTypeId: "note",
+    updatedAt: "2026-09-27T10:00:00Z",
   },
   {
     id: "reading",
@@ -199,6 +205,7 @@ export const collections: MockCollection[] = [
     itemCount: 26,
     typeIds: ["link"],
     colorTypeId: "link",
+    updatedAt: "2026-09-29T12:00:00Z",
   },
 ];
 
