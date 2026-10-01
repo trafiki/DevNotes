@@ -1,0 +1,13 @@
+.next
+out
+build
+node_modules
+src/generated
+package-lock.json
+next-env.d.ts
+
+# Local-only docs and tooling (not project code)
+_context
+.claude
+AGENTS.md
+CLAUDE.md
