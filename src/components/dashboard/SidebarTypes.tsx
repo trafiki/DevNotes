@@ -1,16 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Code,
-  File,
-  Image,
-  Link as LinkIcon,
-  Sparkles,
-  StickyNote,
-  Terminal,
-  type LucideIcon,
-} from "lucide-react";
 
 import {
   SidebarGroup,
@@ -20,18 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { TypeIcon } from "@/lib/item-type-icons";
 import { itemTypes } from "@/lib/mock-data";
-
-// Item types store their Lucide icon by name
-const TYPE_ICONS: Record<string, LucideIcon> = {
-  Code,
-  Sparkles,
-  StickyNote,
-  Terminal,
-  Link: LinkIcon,
-  File,
-  Image,
-};
 
 interface SidebarTypesProps {
   onNavigate: () => void;
@@ -45,7 +25,6 @@ export function SidebarTypes({ onNavigate }: SidebarTypesProps) {
       </SidebarGroupLabel>
       <SidebarMenu>
         {itemTypes.map((type) => {
-          const Icon = TYPE_ICONS[type.icon] ?? File;
           return (
             <SidebarMenuItem key={type.id}>
               <SidebarMenuButton
@@ -55,7 +34,7 @@ export function SidebarTypes({ onNavigate }: SidebarTypesProps) {
                 className="text-sidebar-foreground/75 hover:text-sidebar-foreground"
               >
                 {/* Type colors come from data, so they can't be Tailwind classes */}
-                <Icon style={{ color: type.color }} />
+                <TypeIcon name={type.icon} style={{ color: type.color }} />
                 <span>{type.name}s</span>
               </SidebarMenuButton>
               <SidebarMenuBadge className="gap-2 font-mono text-muted-foreground">
